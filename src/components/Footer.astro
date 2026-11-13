@@ -1,0 +1,18 @@
+---
+const { name } = Astro.props;
+---
+
+<footer class="site-footer">
+  © 2026 {name}. Built with Astro and Tailwind CSS.
+</footer>
+
+<style>
+  .site-footer {
+    padding: 32px 16px;
+    text-align: center;
+    font-size: 0.8rem;
+    border-top: 1px solid var(--rule);
+    color: var(--text);
+    opacity: 0.85;
+  }
+</style>

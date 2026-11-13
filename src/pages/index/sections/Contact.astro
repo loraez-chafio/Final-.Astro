@@ -1,0 +1,28 @@
+---
+const email = "your-email@example.com"; // change this to your real email
+---
+
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <p>Want to work together or just say hi? Send me a message.</p>
+  <p class="handle">@loraez-chafio</p>
+  <a class="cta" href={`mailto:${email}`}>Email me</a>
+</section>
+
+<style>
+  .contact { max-width: 860px; margin: 0 auto; padding: 80px 20px 100px; text-align: center; }
+  h2 { margin: 0 0 16px; font-size: 2rem; color: var(--name); }
+  p { margin: 0 auto 12px; max-width: 52ch; line-height: 1.8; }
+  .handle { color: var(--name-accent); font-size: 1.1rem; margin-bottom: 26px; }
+  .cta {
+    display: inline-block;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    text-decoration: none;
+    padding: 13px 24px;
+    border-radius: 8px;
+    transition: filter 0.2s, transform 0.2s;
+  }
+  .cta:hover { filter: brightness(1.12); transform: translateY(-1px); }
+  .cta:focus-visible { outline: 2px solid var(--name-accent); outline-offset: 3px; }
+</style>

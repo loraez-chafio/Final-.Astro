@@ -1,0 +1,67 @@
+---
+const { name } = Astro.props;
+const parts = name.split(" ");
+const last = parts.pop();
+const first = parts.join(" ");
+---
+
+<header class="site-header">
+  <a href="/" class="brand">{first} <span>{last}</span></a>
+
+  <nav class="site-nav">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="actions">
+    <button id="darkModeToggle" type="button" class="btn">Toggle Theme</button>
+    <button id="replayAnimation" type="button" class="btn">↻ Replay Animation</button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 22px clamp(16px, 9vw, 120px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .brand {
+    font-family: Arial, "Helvetica Neue", sans-serif;
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: var(--name);
+    text-decoration: none;
+  }
+  .brand span { color: var(--name-accent); }
+
+  .site-nav { display: flex; gap: 22px; font-size: 0.9rem; }
+  .site-nav a { color: var(--text); text-decoration: none; opacity: 0.85; }
+  .site-nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: 0;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: filter 0.2s, transform 0.2s;
+  }
+  .btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+  .btn:focus-visible, .site-nav a:focus-visible, .brand:focus-visible {
+    outline: 2px solid var(--name-accent);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 720px) {
+    .site-nav { order: 3; width: 100%; justify-content: center; }
+  }
+</style>
